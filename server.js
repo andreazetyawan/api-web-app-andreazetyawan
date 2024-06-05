@@ -3,8 +3,10 @@ const cors = require("cors");
 
 const app = express();
 
+const CORS_ORIGIN = process.env.ORIGIN
+
 var corsOptions = {
-  origin: "http://api.andreazetyawan.id"
+  origin: CORS_ORIGIN
 };
 
 app.use(cors(corsOptions));
