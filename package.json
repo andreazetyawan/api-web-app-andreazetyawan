@@ -1,7 +1,7 @@
 {
-  "name": "api-nodejs-psql",
+  "name": "api-web-app-andreazetyawan",
   "version": "1.0.0",
-  "description": "API node js express dengan database postgresql",
+  "description": " api web app andreazetyawan dibuat menggunakan node js, express dengan database postgresql dan mongo db.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
