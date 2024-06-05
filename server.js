@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config();
 
 const app = express();
 
 var corsOptions = {
-  origin: process.env.ORIGIN
+  origin: process.env.CORS_ORIGIN
 };
 
 app.use(cors(corsOptions));
