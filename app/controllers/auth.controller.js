@@ -13,7 +13,7 @@ exports.signup = (req, res) => {
     id: req.body.id,
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
+    password: bcrypt.hashSync(req.body.password, 8),
     active: true,
     role: req.body.role,
   })
@@ -24,11 +24,13 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
-  User.findOne({
-    where: {
-      username: req.body.username
-    }
-  })
+
+      User.findOne({
+        where: {
+           username: req.body.username
+        }
+     })
+
     .then(user => {
       if (!user) {
         return res.status(404).send({ message: "User Not found." });
@@ -46,7 +48,8 @@ exports.signin = (req, res) => {
         });
       }
 
-      const token = jwt.sign({ id: user.id },
+
+const token = jwt.sign({ id: user.id },
                               config.secret,
                               {
                                 algorithm: 'HS256',
@@ -58,9 +61,10 @@ exports.signin = (req, res) => {
           id: user.id,
           username: user.username,
           email: user.email,
-          roles: user.role,
           active: user.active,
+          role: user.role,
           accessToken: token
+      });
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
