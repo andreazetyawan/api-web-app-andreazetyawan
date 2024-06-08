@@ -1,7 +1,7 @@
 {
   "name": "api-web-app-andreazetyawan",
   "version": "1.0.0",
-  "description": " api web app andreazetyawan dibuat menggunakan node js, express dengan database postgresql dan mongo db.",
+  "description": " api web app andreazetyawan adalah api dari situs andreazetyawan.id, dibuat menggunakan node js, express dengan database postgresql dan mongo db.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
