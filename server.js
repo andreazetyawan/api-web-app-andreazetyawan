@@ -5,7 +5,7 @@ const db = require("./app/v1/models");
 const app = express();
 
 var corsOptions = {
-  origin: process.env.CORS_ORIGIN
+  origin: process.env.CORS_ORIGIN || "*"
 };
 
 app.use(cors(corsOptions));
