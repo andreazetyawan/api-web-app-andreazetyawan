@@ -23,7 +23,7 @@ app.use(function(req, res){
 require('./app/v1/routes/auth.route')(app);
 require('./app/v1/routes/user.route')(app);
 
-app.get('/v1/', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).send({ message: "oke" });
 })
 
