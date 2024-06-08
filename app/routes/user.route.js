@@ -9,24 +9,12 @@ module.exports = function(app) {
     );
     next();
   });
-
-  app.get("/api/test/all", controller.allAccess);
-
+  app.get("/api/test/all", 
+    controller.allAccess
+  );
   app.get(
-    "/api/test/user",
-    [authJwt.verifyToken],
+    "/api/test/user", 
+    [authJwt.verifyToken], 
     controller.userBoard
-  );
-
-  app.get(
-    "/api/test/official",
-    [authJwt.verifyToken, authJwt.isOfficial],
-    controller.officialBoard
-  );
-
-  app.get(
-    "/api/test/member",
-    [authJwt.verifyToken, authJwt.isMember],
-    controller.memberBoard
   );
 };

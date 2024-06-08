@@ -31,35 +31,8 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-isOfficial = (req, res, next) => {
-  User.findByPk(req.userId).then(user => {
-      if (user.role === "official") {
-      next();
-      return;
-      }
-      res.status(403).send({
-        message: "Require Official Role!"
-      });
-  });
-};
-
-
-isMember = (req, res, next) => {
-  User.findByPk(req.userId).then(user => {
-      if (user.role === "member") {
-      next();
-      return;
-      }
-      res.status(403).send({
-        message: "Require Member Role!"
-      });
-  });
-};
-
 const authJwt = {
-  verifyToken: verifyToken,
-  isOfficial: isOfficial,
-  isMember: isMember
+  verifyToken: verifyToken
 };
 module.exports = authJwt;
 
