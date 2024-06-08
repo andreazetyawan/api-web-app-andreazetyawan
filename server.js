@@ -23,11 +23,11 @@ db.sequelize.sync();
 require('./app/v1/routes/auth.route')(app);
 require('./app/v1/routes/user.route')(app);
 
-app.get('./v1/*', function(req, res){
-  res.status(404).send({ message: "404" });
+app.use(function(req, res){
+  res.status(404).send({ message: "404 | Page Not Found" });
 });
 
-app.get('./v1/', (req, res) => {
+app.get('/v1/', (req, res) => {
   res.status(200).send({ message: "Nothing to see here." });
 })
 
