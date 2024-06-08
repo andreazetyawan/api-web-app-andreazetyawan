@@ -47,14 +47,13 @@ exports.signin = (req, res) => {
       });
 
       let refreshToken = await RefreshToken.createToken(user);
-
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          accessToken: token,
-          refreshToken: refreshToken,
-        });
+      res.status(200).send({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        accessToken: token,
+        refreshToken: refreshToken,
+      });
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
