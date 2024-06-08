@@ -16,16 +16,17 @@ app.use(express.urlencoded({ extended: true }));
 
 db.sequelize.sync();
 
-app.use(function(req, res){
-  res.status(404).send({ message: "404 | Page Not Found" });
-});
 // simple route
 require('./app/v1/routes/auth.route')(app);
 require('./app/v1/routes/user.route')(app);
 
-app.get('/', (req, res) => {
+app.get('/v1/', (req, res) => {
   res.status(200).send({ message: "oke" });
 })
+
+app.use(function(req, res){
+  res.status(404).send({ message: "404 | Page Not Found" });
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
