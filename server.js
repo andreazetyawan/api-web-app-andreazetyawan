@@ -21,7 +21,10 @@ require('./app/v1/routes/auth.route')(app);
 require('./app/v1/routes/user.route')(app);
 
 app.get('/v1/', (req, res) => {
-  res.status(200).send({ message: "oke" });
+  res.status(200).send({ 
+    title: "Feature Guest Book",
+    description: "Halaman ini adalah fitur untuk buku tamu, dan masih dalam pengembangan. Ini adalah halaman yang memanggil api dari backend express",
+  });
 })
 
 app.use(function(req, res){
